@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <title>臺北市立大學Portal改善計畫</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/Chart.js"></script>
+	<script src="assets/js/modernizr.custom.js"></script>
+	
+
+	
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+		
+	<!-- Menu -->
+	<nav class="menu" id="theMenu">
+		<div class="menu-wrap">
+			<h1 class="logo"><a href="./projectpresentation">解說展示</a></h1>
+			<i class="icon-remove menu-close"></i>
+			<a href="#home" class="smoothScroll">首頁</a>
+			<a href="#services" class="smoothScroll">服務</a>
+			<a href="#download" class="smoothScroll">下載</a>
+			<a href="#about" class="smoothScroll">關於我們</a>
+			<a href="#contact" class="smoothScroll">聯絡我們</a>
+			<a href="http://goo.gl/forms/B0lo87wCRO" class="smoothScroll">意見回饋</a>
+			<a href="https://www.facebook.com/hcyuser"><i class="icon-facebook"></i></a>
+			<a href="https://github.com/hcyuser"><i class="icon-github"></i></a>
+			<a href="mailto:user@hcy.idv.tw"><i class="icon-envelope"></i></a>
+		</div>
+		
+		<!-- Menu button -->
+		<div id="menuToggle"><i class="icon-reorder"></i></div>
+	</nav>
+
+
+	
+	<!-- ========== HEADER SECTION ========== -->
+	<section id="home" name="首頁"></section>
+	<div id="headerwrap">
+		<div class="container">
+			<br>
+			<h1>Portal改善計畫</h1>
+			<h2>自己的portal自己救</h2>
+			<div class="row">
+				<br>
+				<br>
+				<br>
+				<div class="col-lg-6 col-lg-offset-3">
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+	
+	
+	<!-- ========== WHITE SECTION ========== -->
+	<div id="w">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+				<h3>在大學，學生與行政機關常常用網路溝通，從宿舍申請到成績申報。有時候還會與同學一起上網交作業。<br/>
+					我們決定打造自己的portal，涵蓋校務系統，外加租賃與買賣等服務，讓生活更便利。<br/>
+					<bold>我們相信服務因人而生，自己的portal自己救。</bold>
+				</h3>
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /w -->
+	
+	<!-- ========== SERVICES - GREY SECTION ========== -->
+	<section id="services" name="services"></section>
+	<div id="g">
+		<div class="container">
+			<div class="row">
+				<h3>我們的服務</h3>
+				<br>
+				<br>
+				<div class="col-lg-3">
+					<img src="assets/img/s1.png">
+					<h4>SSO/API單一簽入</h4>
+					<p>希望學校能效仿國外大學，全面打開API，讓服務全面化，登入畫面一致性。</p>
+				</div>
+				<div class="col-lg-3">
+					<img src="assets/img/s2.png">
+					<h4>生活資訊</h4>
+					<p>能夠提供二手買賣平台，商圈生活通等服務，由學校社團或學生會協助運作。</p>
+				</div>
+				<div class="col-lg-3">
+					<img src="assets/img/s3.png">
+					<h4>多螢服務</h4>
+					<p>提供手機平板電腦等各種裝置服務，平台轉換毫無間隙。</p>
+				</div>
+				<div class="col-lg-3">
+					<img src="assets/img/s4.png">
+					<h4>多元學習</h4>
+					<p>與CTLD合作，提供反轉教室與上課錄影的協調平台，讓師生快速溝通無障礙。</p>
+				</div>
+				<p>上面四張示意圖選自myNTU臺大人入口網</p>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /g -->
+	
+	<!-- ========== CHARTS - DARK GREY SECTION ========== -->
+	<div id="dg">
+		<div class="container">
+			<div class="row">
+				<h3>我們使用的主要程式語言</h3>
+				<br>
+				<br>
+				<div class="col-lg-4">
+					<canvas id="javascript" height="130" width="130"></canvas>
+					<br>
+					<h4>HTML/Javascript/CSS (Bootstrap) </h4>
+					<br>
+					<script>
+						var doughnutData = [
+								{
+									value: 25,
+									color:"#CCFF33"
+								},
+								{
+									value : 25,
+									color : "#33FFAA"
+								},
+								{
+									value : 50,
+									color : "#5555FF"
+								}
+							];
+							var myDoughnut = new Chart(document.getElementById("javascript").getContext("2d")).Doughnut(doughnutData);
+					</script>
+
+				</div>
+				<div class="col-lg-4">
+					<canvas id="bootstrap" height="130" width="130"></canvas>
+					<br>
+					<h4>PHP/MySQL</h4>
+					<br>
+					<script>
+						var doughnutData = [
+								{
+									value: 50,
+									color:"	#99FF33"
+								},
+								{
+									value : 50,
+									color : "#CC6600"
+								}
+							];
+							var myDoughnut = new Chart(document.getElementById("bootstrap").getContext("2d")).Doughnut(doughnutData);
+					</script>
+				</div>
+				<div class="col-lg-4">
+					<canvas id="wordpress" height="130" width="130"></canvas>
+					<br>
+					<h4>JAVA/JAVA FX </h4>
+					<br>
+					<script>
+						var doughnutData = [
+								{
+									value: 65,
+									color:"#99FFFF"
+								},
+								{
+									value : 35,
+									color : "#7700BB"
+								}
+							];
+							var myDoughnut = new Chart(document.getElementById("wordpress").getContext("2d")).Doughnut(doughnutData);
+					</script>
+				</div>
+			
+			</div>	
+		</div><!-- /container -->
+	</div><!-- /dg -->
+	
+	<section id="download" name="portfolio"></section>
+	<div id="portfoliowrap">
+		<div class="container">
+			<div class="row">
+				<h3>下載</h3>
+				<br>
+				<br>
+				<div class>
+					<h4><a href="item.html">Android版</a></h4>
+					
+				</div>
+				<div class>
+				<h4><a href="item.html">桌面JAVA版</a></h4>
+				</div>
+			</div>	
+		</div><!-- /container -->
+	</div><!-- /portfoliowrap -->
+	
+	<!-- ========== WHITE SECTION ========== -->
+	<div id="w">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+				<h3>把自己腦海中天馬行空的想法化為實際，真正影響人們的生活。</h3>
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /w -->
+	
+	<!-- ========== ABOUT - GREY SECTION ========== -->
+	<section id="about" name="about"></section>
+	<div id="g">
+		<div class="container">
+			<div class="row">
+				<h3>關於我們</h3>
+				<br>
+				<br>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8">
+				<p>一群狂熱想要改變生活的夥伴</p>
+				<br>
+				<br>
+				</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="assets/img/team01.jpg" height="90" width="90">
+					<h4>李昆翰</h4>
+					<h5><i>指導教授</i></h5>
+					<p>研究專長:教學科技、資訊教育、遊戲演算法、人工智慧教育應用、敏捷軟體開發</p>
+					<p>
+						<a href="https://www.facebook.com/profile.php?id=100000739580103&fref=ts"><i class="icon-facebook"></i></a>
+					</p>
+				</div>
+
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="assets/img/team02.jpg" height="90" width="90">
+					<h4>黃志揚</h4>
+					<h5><i>PM(Product Manager)</i></h5>
+					<p>專長:給人製造壓力，常常鬼吼鬼叫。其實脾氣很好。</p>
+					<p>
+						<a href="https://www.facebook.com/hcyuser"><i class="icon-facebook"></i></a>
+						<a href="mailto:user@hcy.idv.tw"><i class="icon-envelope"></i></a>
+
+					</p>
+				</div>
+
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="assets/img/team03.jpg" height="90" width="90">
+					<h4>程柏綸</h4>
+					<h5><i>Andriod Designer</i></h5>
+					<p>有狗之人，善於挑戰。</p>
+					<p>
+						<a href="https://www.facebook.com/profile.php?id=100007281424619&fref=pb_other"><i class="icon-facebook"></i></a>
+					</p>
+				</div>
+
+				<div class="col-lg-3 team">
+					<img class="img-circle" src="assets/img/team04.jpg" height="90" width="90">
+					<h4>謝秉瑾</h4>
+					<h5><i>JavaFX GUI Designer</i></h5>
+					<p>狂熱遊戲，善於嘗試。</p>
+					<p>
+						<a href="https://www.facebook.com/profile.php?id=100004759988055&sk=about"><i class="icon-facebook"></i></a>
+					</p>
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /g -->
+	
+	<!-- ========== FOOTER SECTION ========== -->
+	<section id="contact" name="聯絡我們"></section>
+	<div id="f">
+		<div class="container">
+			
+					
+					<div class>	
+						<h3><b>電話:</b></h3>
+						<h3>+886-2-23113040#8362</h3>
+						<br>
+					</div>
+					
+					
+				
+			
+		</div><!-- /container -->
+	</div><!-- /f -->
+	
+	<div id="c">
+		<div class="container">
+			<p>Created by <a href="http://www.hcy.idv.tw">HCY</a></p>
+		
+		</div>
+	</div>
+	
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="assets/js/classie.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/smoothscroll.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>
