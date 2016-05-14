@@ -112,44 +112,50 @@
 				<section>
 					<section>
 						<h2>JAVA FX</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<p>謝秉瑾為主要撰寫人</p>
 					</section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+						<h2>程式碼解析</h2>
 						<pre><code class="java" data-trim contenteditable>
-Scanner sc = new Scanner(System.in);
-		//prompt the user to enter the right number
-		System.out.println("Input the first number.");
-		String n1 = sc.nextLine();
-		//use BigDecimal to deal number
-		BigDecimal number1 = new BigDecimal(n1);
-		System.out.println("Input the second number.");
-		String n2 = sc.nextLine();
-		//use BigDecimal to deal number
-		BigDecimal number2 = new BigDecimal(n2);
+public Browser(String UID,String UPW,String URL) throws ArrayIndexOutOfBoundsException, JSONException, IOException {
+
+    	InternetReachable ie = new InternetReachable();
+    	Text Em = new Text("您的email是: ");
+    	try{
+    	DealJS DJ = new DealJS(UID,UPW);
+    	if(DJ.getAccess().equals("true")){
+    		Em.setText(DJ.getEmail());
+		}else{
+			Em.setText("");
+		}
+    	} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	Text t;
+        if(ie.isInternetReachable()){
+        	t = new Text("已連線            ");
+        }else{
+        	t = new Text("未連線             ");
+        }
+        //apply the styles
+        getStyleClass().add("browser");
+        
+        for (int i = 0; i < captions.length ; i++) {
+            final Hyperlink hpl = hpls[i] = new Hyperlink(captions[i]);
+            Image image = images[i] = new Image(getClass().getResourceAsStream(imageFiles[i]));
+            ImageView IV = new ImageView (image);
+            hpl.setGraphic(IV);
+            final String url = urls[i];
+ 
+            hpl.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent e) {
+                    loadweb(url);   
+                }
+            });
+        }
 					</code></pre>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
 					</section>
 				</section>
 
@@ -186,18 +192,19 @@ Scanner sc = new Scanner(System.in);
 				
 		
 					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+						<h2>這個專案</h2>
+						<p>更需要</p>
+						<p class="fragment">你</p>
+						<p><span class="fragment">我</span> <span class="fragment">他</span> <span class="fragment">的幫忙與協助。</span></p>
 
 						
 					</section>
 				<section style="text-align: left;">
 					<h1>THE END</h1>
 					<p>
-						- <a href="http://slides.com">回到計畫首頁</a> <br>
-						- <a href="https://github.com/">愛你們</a>
+							<p>-謝謝大家</p>
+							- <a href="http://utcs.csie.org/~u10416001/2016java2/">回到計畫首頁</a> <br>
+					
 					</p>
 				</section>
 
