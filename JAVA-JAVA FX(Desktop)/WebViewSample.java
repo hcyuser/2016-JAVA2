@@ -18,7 +18,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
  
 public class WebViewSample extends Application {
-	String UID,UPW;
+	String UID,UPW,URL;
 	WebViewSample(String UID,String UPW){
 		this.UID = UID;
 		this.UPW = UPW;
@@ -26,11 +26,15 @@ public class WebViewSample extends Application {
 	WebViewSample(){
 
 	}
-    
+	WebViewSample(String UID,String UPW,String URL){
+		this.UID = UID;
+		this.UPW = UPW;
+		this.URL = URL;
+	}
     @Override public void start(Stage stage) throws ArrayIndexOutOfBoundsException, JSONException, IOException {
         // create scene
-        stage.setTitle("個人儲存雲");
-        Scene scene = new Scene(new Browser(UID,UPW),1500,1000);
+        stage.setTitle("歡迎使用");
+        Scene scene = new Scene(new Browser(UID,UPW,URL),1500,1000);
         stage.setScene(scene);
         stage.show();
     }
@@ -48,7 +52,7 @@ class Browser extends Region {
         "校務系統",
         "計畫專頁",
         "遠距會議系統",
-        "校外美食地圖",
+        "資科系系網",
         "線上聊天室"
     };
     
@@ -59,7 +63,7 @@ class Browser extends Region {
             "http://my.utaipei.edu.tw/",
             "http://www.hcy.idv.tw/2016java2/",
             "http://vmeeting.utaipei.edu.tw/",
-            "http://hcy.idv.tw/2016java2/googlemap/",
+            "http://www.hcy.idv.tw/2016java2/utcs/",
             "http://hcy.idv.tw/2016java2/chat"
     };
     private static String[] imageFiles = new String[]{
@@ -69,7 +73,7 @@ class Browser extends Region {
             "system.jpg",
             "project.jpg",
             "meeting.jpg",
-            "eatmap.jpg",
+            "net.jpg",
             "chat.jpg"
         };
     final ImageView selectedImage = new ImageView();
@@ -78,7 +82,8 @@ class Browser extends Region {
     final WebView browser = new WebView();
     final WebEngine webEngine = browser.getEngine();
  
-    public Browser(String UID,String UPW) throws ArrayIndexOutOfBoundsException, JSONException, IOException {
+
+    public Browser(String UID,String UPW,String URL) throws ArrayIndexOutOfBoundsException, JSONException, IOException {
 
     	InternetReachable ie = new InternetReachable();
     	Text Em = new Text("您的email是: ");
@@ -119,7 +124,7 @@ class Browser extends Region {
         
  
 // load the home page   
-        loadweb("https://tl.utaipei.edu.tw/");
+        loadweb(URL);
         
 // create the toolbar
         toolBar = new HBox();

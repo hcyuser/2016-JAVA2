@@ -11,6 +11,9 @@ public class FirstView extends WebViewSample {
 	FirstView(String UID, String UPW) {
 		super(UID, UPW);
 	}
+	FirstView(String UID, String UPW,String URL) {
+		super(UID, UPW, URL);
+	}
 	FirstView() {
 	}
 
@@ -53,20 +56,20 @@ public class FirstView extends WebViewSample {
 		btmeetingB.setLayoutY(0);
 		pane.getChildren().add(btmeetingB);
 		
-		Image eatmapB = new Image(getClass().getResourceAsStream("eatmapB.jpg"));
-		Button bteatmapB = new Button("校外美食地圖", new ImageView(eatmapB));
-		bteatmapB.setLayoutX(1042);
-		bteatmapB.setLayoutY(0);
-		pane.getChildren().add(bteatmapB);
+		Image netB = new Image(getClass().getResourceAsStream("netB.jpg"));
+		Button btnetB = new Button("資科系系網", new ImageView(netB));
+		btnetB.setLayoutX(1042);
+		btnetB.setLayoutY(0);
+		pane.getChildren().add(btnetB);
 		
 		Image chatB = new Image(getClass().getResourceAsStream("chatB.jpg"));
 		Button btchatB = new Button("線上聊天室", new ImageView(chatB));
-		btchatB.setLayoutX(1234);
+		btchatB.setLayoutX(1225);
 		btchatB.setLayoutY(0);
 		pane.getChildren().add(btchatB);
 		
 		bthomeB.setOnAction(e ->{
-			WebViewSample wv = new WebViewSample(UID, UPW);
+			WebViewSample wv = new WebViewSample(UID, UPW, "https://tl.utaipei.edu.tw/");
 			try {
 				wv.start(stage);
 			} catch (Exception e1) {
@@ -75,63 +78,63 @@ public class FirstView extends WebViewSample {
 		});
 		
 		btlmsB.setOnAction(e ->{
-			WebView1 wv1 = new WebView1(UID, UPW);
+			WebViewSample wv = new WebViewSample(UID, UPW, "http://lms.utaipei.edu.tw/");
 			try {
-				wv1.start(stage);
+				wv.start(stage);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		});
 		
 		btcashB.setOnAction(e ->{
-			WebView2 wv2 = new WebView2(UID, UPW);
+			WebViewSample wv = new WebViewSample(UID, UPW, "http://www.hcy.idv.tw/utcsshop/");
 			try {
-				wv2.start(stage);
+				wv.start(stage);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		});
 		
 		btsystemB.setOnAction(e ->{
-			WebView3 wv3 = new WebView3(UID, UPW);
+			WebViewSample wv = new WebViewSample(UID, UPW, "http://my.utaipei.edu.tw/");
 			try {
-				wv3.start(stage);
+				wv.start(stage);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		});
 		
 		btprojectB.setOnAction(e ->{
-			WebView4 wv4 = new WebView4(UID, UPW);
+			WebViewSample wv = new WebViewSample(UID, UPW, "http://www.hcy.idv.tw/2016java2/");
 			try {
-				wv4.start(stage);
+				wv.start(stage);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		});
 		
 		btmeetingB.setOnAction(e ->{
-			WebView5 wv5 = new WebView5(UID, UPW);
+			WebViewSample wv = new WebViewSample(UID, UPW, "http://vmeeting.utaipei.edu.tw/");
 			try {
-				wv5.start(stage);
+				wv.start(stage);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		});
 		
-		bteatmapB.setOnAction(e ->{
-			WebView6 wv6 = new WebView6(UID, UPW);
+		btnetB.setOnAction(e ->{
+			WebViewSample wv = new WebViewSample(UID, UPW, "http://www.hcy.idv.tw/2016java2/utcs/");
 			try {
-				wv6.start(stage);
+				wv.start(stage);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		});
 		
 		btchatB.setOnAction(e ->{
-			WebView7 wv7 = new WebView7(UID, UPW);
+			WebViewSample wv = new WebViewSample(UID, UPW, "http://hcy.idv.tw/2016java2/chat");
 			try {
-				wv7.start(stage);
+				wv.start(stage);
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
