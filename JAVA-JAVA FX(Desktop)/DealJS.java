@@ -10,10 +10,10 @@ public class DealJS {
 	DealJS(String id,String password) throws IOException, JSONException ,ArrayIndexOutOfBoundsException{
 		this.id = id;
 		this.password = password;
-		if(!(id.equals("admin")&&id.equals("admin"))){
+		if(!(id.equals("admin")&&password.equals("admin"))){
 			jsonopasswordlms = readJsonFromUrl("http://lms.utaipei.edu.tw/sys/lib/ajax/login_submit.php?account="+id+"&password="+password);
 			access = jsonopasswordlms.getJSONObject("ret").get("status");
-			email = jsonopasswordlms.getJSONObject("ret").get("email");
+			
 			
 		}
 		
@@ -23,7 +23,7 @@ public class DealJS {
 	public String password;
 	JSONObject jsonopasswordlms ;
 	Object access;
-	Object email;
+	Object email = null;
 	private static String readAll(Reader rd) throws IOException {
 		StringBuilder sb = new StringBuilder();
 		int cp;
@@ -58,21 +58,24 @@ public class DealJS {
 	public String getPassword(){
 		return password;
 	}
-	public String getAccess() throws JSONException, IOException{
+	public String getAccess(){
 		
 		if(id==null||password==null){
 			return "false";
-		}else if(id.equals("admin")&&id.equals("admin")){
+		}else if(id.equals("admin")&&password.equals("admin")){
 			return "true";
 		}
-		else{
-			
+		else if(access.equals("false")){
+			return "false";
+		}else if(access.equals("true")){
+			email = jsonopasswordlms.getJSONObject("ret").get("email");
 			return access.toString();
 		}
+		return "false";
 		
 	}
 	public String getEmail(){
-		if(id.equals("admin")&&id.equals("admin")){
+		if(id.equals("admin")&&password.equals("admin")){
 			return "admin@utaipei.edu.tw";
 		}	
 		return email.toString();
