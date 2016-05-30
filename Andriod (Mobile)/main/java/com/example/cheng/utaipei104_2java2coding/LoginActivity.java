@@ -81,31 +81,43 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
+
+
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {//登入
                 attemptLogin();
-                //登入
-                if(true){
-                    Intent intent = new Intent();
-                    intent.setClass(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-                else {
-                    //登入失敗
-                    //mEmailView.setError(getString(R.string.error_invalid_email));
-                    //focusView = mEmailView;
-                    //cancel = true;
-
-                }
-                //登入
+                // 這邊要用 Thread 是因為 Android 改版之後會對在主程式裡跑網路連接的程式碼做 Exception 的意外排除動作因此要把網路連線使用多執行緒的方式去運行，才不會被當成例外錯誤拋出
+                Thread thread = new Thread(mutiThread);
+                thread.start();
             }
         });
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
+
+    private Runnable mutiThread = new Runnable() {
+        public void run() {
+            // 運行網路連線的程式
+            String email = mEmailView.getText().toString();
+            String password = mPasswordView.getText().toString();
+            DealJS DJ;
+            try{
+                DJ = new DealJS(email, password);
+                if (DJ.getAccess().equals("true")){
+                    Intent intent = new Intent();
+                    intent.setClass(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+            catch(Exception e){
+                mEmailView.setError(e.toString());
+            }
+        }
+    };
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
@@ -141,8 +153,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Callback received when a permissions request has been completed.
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUEST_READ_CONTACTS) {
             if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 populateAutoComplete();
@@ -173,21 +184,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
-
+        //mPasswordView.setError(getString(R.string.error_invalid_password));
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
+            mEmailView.setError("帳號不得為空");
             focusView = mEmailView;
             cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
+        }else {
+            if (TextUtils.isEmpty(password)) {
+                mPasswordView.setError("密碼不得為空");
+                focusView = mPasswordView;
+                cancel = true;
+            } else if (password.length() < 4) {
+                mPasswordView.setError("密碼小於4個字");
+                focusView = mPasswordView;
+                cancel = true;
+            } else if (password.length() > 10) {
+                mPasswordView.setError("密碼大於10個字");
+                focusView = mPasswordView;
+                cancel = true;
+            }
         }
 
         if (cancel) {
@@ -197,20 +213,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+
+            //登入成功
+
+            Thread thread = new Thread(mutiThread);
+            thread.start();
+
+            //showProgress(true);
+            //mAuthTask = new UserLoginTask(email, password);
+            //mAuthTask.execute((Void) null);
         }
-    }
-
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
     }
 
     /**
