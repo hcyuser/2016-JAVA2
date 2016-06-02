@@ -19,7 +19,7 @@
         <Button android:id="@+id/link2"
             android:layout_height="120dp"
             android:drawableLeft="@drawable/lms"
-            android:text="LMS" />
+            android:text="　LMS 　" />
     </TableRow>
 
 
@@ -31,14 +31,14 @@
         <Button android:id="@+id/link4"
             android:layout_height="120dp"
             android:drawableLeft="@drawable/personalcloudstorage"
-            android:text="個人儲存雲" />
+            android:text="　個人儲存雲" />
     </TableRow>
 
     <TableRow>
         <Button android:id="@+id/link5"
             android:layout_height="120dp"
             android:drawableLeft="@drawable/projectpage"
-            android:text="計畫專頁" />
+            android:text="　 計畫專頁 　" />
         <Button android:id="@+id/link6"
             android:layout_height="120dp"
             android:drawableLeft="@drawable/teleconferencingsystem"
@@ -49,7 +49,7 @@
         <Button android:id="@+id/link7"
             android:layout_height="120dp"
             android:drawableLeft="@drawable/csweb"
-            android:text="系網" />
+            android:text="　 系網 　" />
         <Button android:id="@+id/link8"
             android:layout_height="120dp"
             android:drawableLeft="@drawable/onlinechat"
