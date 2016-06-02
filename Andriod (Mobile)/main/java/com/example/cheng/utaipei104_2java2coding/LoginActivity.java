@@ -1,4 +1,4 @@
-package com.example.cheng.utaipei104_2java2coding;
+﻿package com.example.cheng.utaipei104_2java2coding;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -89,8 +89,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onClick(View view) {//登入
                 attemptLogin();
                 // 這邊要用 Thread 是因為 Android 改版之後會對在主程式裡跑網路連接的程式碼做 Exception 的意外排除動作因此要把網路連線使用多執行緒的方式去運行，才不會被當成例外錯誤拋出
-                Thread thread = new Thread(mutiThread);
-                thread.start();
+                //Thread thread = new Thread(mutiThread);
+                //thread.start();
             }
         });
 
