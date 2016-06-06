@@ -158,12 +158,93 @@ public Browser(String UID,String UPW,String URL) throws ArrayIndexOutOfBoundsExc
 					</code></pre>
 					</section>
 				</section>
-
 				<section>
-					<h2>Slides</h2>
+				<section>
+					<h2>Andriod </h2>
 					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
+						程柏綸為主要撰寫人
 					</p>
+				</section>
+				<section>
+				<pre><code class="java" data-trim contenteditable>
+    Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+    mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View view) {//登入
+            attemptLogin();
+        }
+    });
+
+    mLoginFormView = findViewById(R.id.login_form);
+    mProgressView = findViewById(R.id.login_progress);
+}
+
+private Runnable mutiThread = new Runnable() {
+    public void run() {
+        // 運行網路連線的程式
+        String email = mEmailView.getText().toString();
+        String password = mPasswordView.getText().toString();
+        DealJS DJ;
+        try{
+            DJ = new DealJS(email, password);
+            if (DJ.getAccess().equals("true")){
+                Intent intent = new Intent();
+                intent.setClass(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        }
+
+        catch(Exception e){
+            mEmailView.setError(e.toString());
+        }
+    }
+};
+private void attemptLogin() {
+    if (mAuthTask != null) {
+        return;
+    }
+
+    mEmailView.setError(null);
+    mPasswordView.setError(null);
+
+    String email = mEmailView.getText().toString();
+    String password = mPasswordView.getText().toString();
+
+    boolean cancel = false;
+    View focusView = null;
+
+    if (TextUtils.isEmpty(email)) {
+        mEmailView.setError("帳號不得為空");
+        focusView = mEmailView;
+        cancel = true;
+    }else {
+        if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError("密碼不得為空");
+            focusView = mPasswordView;
+            cancel = true;
+        } else if (password.length() < 4) {
+            mPasswordView.setError("密碼小於4個字");
+            focusView = mPasswordView;
+            cancel = true;
+        } else if (password.length() > 10) {
+            mPasswordView.setError("密碼大於10個字");
+            focusView = mPasswordView;
+            cancel = true;
+        }
+    }
+    if (cancel) {
+        focusView.requestFocus();
+    } else {
+        //登入成功
+            // 這邊要用 Thread 是因為 Android 改版之後會對在主程式裡跑網路連接的程式碼做 Exception 的意外排除動作因此要把網路連線使用多執行緒的方式去運行，才不會被當成例外錯誤拋出
+        Thread thread = new Thread(mutiThread);
+        thread.start();
+    }
+}
+                </code></pre>
+				<p><a href="https://www.youtube.com/watch?v=JghxDKlpKGk">Youtube</a></p>
+				</section>
+				
 				</section>
 				<section>
 				<section>
