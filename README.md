@@ -15,6 +15,9 @@ This is a final project in the JAVA2 course at Department of Computer Science, U
 +     GitHub : https://github.com/hcyuser/2016-JAVA2
 
 ![](./projectqrcode.png)
+--------------------------------------------------------------------
++     Android Demo:
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/JghxDKlpKGk/0.jpg)](https://www.youtube.com/watch?v=JghxDKlpKGk)
 
 
