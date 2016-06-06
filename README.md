@@ -14,5 +14,7 @@ This is a final project in the JAVA2 course at Department of Computer Science, U
 +     黑客公事包(Hackfoldr): http://hackfoldr.org/2016java2/
 +     GitHub : https://github.com/hcyuser/2016-JAVA2
 
+![](./projectqrcode.png)
+
 
 
