@@ -73,21 +73,18 @@ public class LoginJavaFX extends Application {
     	btn.setOnAction(e -> { 
 			try {
 				DealJS DJ = new DealJS(userID.getText(),pwBox.getText());
-				if(DJ.getAccess().equals("true")){
-					actiontarget.setFill(Color.FIREBRICK);
-					actiontarget.setText("登入成功!");
-					FirstView fv = new FirstView(userID.getText(),pwBox.getText());
+				if(DJ.getAccess().equals("true")){					
+					FirstView fv = new FirstView(userID.getText(),pwBox.getText());				
 					fv.start(primaryStage);
 					UID = userID.getText();
 					UPW = pwBox.getText();
-				}else{
-					actiontarget.setFill(Color.FIREBRICK);
-					actiontarget.setText("帳號或密碼錯誤,請重新輸入");
 				}
-	
+				
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+				actiontarget.setFill(Color.FIREBRICK);
+				actiontarget.setText("帳號或密碼錯誤,請重新輸入");
 			}    
 	});
 
